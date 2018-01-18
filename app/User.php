@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace AdvancedELOQUENT;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
