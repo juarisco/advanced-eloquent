@@ -17,7 +17,13 @@ class CreateBooksTable extends Migration
 
             $table->string('title');
             $table->text('description');
+
             $table->softDeletes();
+
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
 
             $table->timestamps();
         });

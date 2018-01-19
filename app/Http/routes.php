@@ -16,7 +16,7 @@
     return AdvancedELOQUENT\Book::all();
 });*/
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     
     $books=AdvancedELOQUENT\Book::get();
 
@@ -33,6 +33,14 @@ Route::delete('destroy', function(Illuminate\Http\Request $request) {
 	}
 
 	return back();
+});*/
+
+Route::get('/', function () {
+    
+    $categories= AdvancedELOQUENT\Category::get();
+
+    return view('relationship', compact('categories'));
+    
 });
 
 /*
