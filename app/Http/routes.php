@@ -37,7 +37,7 @@ Route::delete('destroy', function(Illuminate\Http\Request $request) {
 
 Route::get('/', function () {
     
-    $categories= AdvancedELOQUENT\Category::get();
+    $categories= AdvancedELOQUENT\Category::has('books')->get();
 
     return view('relationship', compact('categories'));
     
