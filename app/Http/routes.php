@@ -11,9 +11,28 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     //return view('welcome');
     return AdvancedELOQUENT\Book::all();
+});*/
+
+Route::get('/', function () {
+    
+    $books=AdvancedELOQUENT\Book::get();
+
+    return view('destroy', compact('books'));
+    
+});
+
+Route::delete('destroy', function(Illuminate\Http\Request $request) {
+
+	$ids=$request->get('ids');
+
+	if (count($ids)) {
+		AdvancedELOQUENT\Book::destroy($ids);
+	}
+
+	return back();
 });
 
 /*
