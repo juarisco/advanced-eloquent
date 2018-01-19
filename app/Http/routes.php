@@ -35,7 +35,7 @@ Route::delete('destroy', function(Illuminate\Http\Request $request) {
 	return back();
 });*/
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     
     $categories= AdvancedELOQUENT\Category::whereHas('books', function($query) {
     	$query->where('status', 'public');
@@ -43,6 +43,13 @@ Route::get('/', function () {
 
     return view('relationship', compact('categories'));
     
+});*/
+
+Route::get('/', function () {
+
+	$users=AdvancedELOQUENT\User::all();
+
+	return view('manytomany', compact('users'));
 });
 
 /*
