@@ -70,13 +70,16 @@ Route::put('put-manytomany/{user_id}', [
 ]);*/
 
 Route::get('/', function () {
-	//$users=AdvancedELOQUENT\User::all();
-	$users=DB::table('users')
-		->select('name', 'email')
+
+
+	$books=DB::table('categories')
+		->join('books','categories.id', '=', 'books.category_id')
+		->where('books.status', 'public')
+		->select('categories.name as category', 'books.title', 'books.description')
 		->get();
 
-	//return $user;
-	return view('querybuilder.index', compact('users'));
+	//dd($books);
+	return view('querybuilder.index', compact('books'));
 });
 
 /*
