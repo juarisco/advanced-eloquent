@@ -69,7 +69,7 @@ Route::put('put-manytomany/{user_id}', [
 	'uses' => 'UserController@putEditManyToMany'
 ]);*/
 
-Route::get('/', function () {
+/*Route::get('/', function () {
 
 
 	$books=DB::table('categories')
@@ -80,6 +80,25 @@ Route::get('/', function () {
 
 	//dd($books);
 	return view('querybuilder.index', compact('books'));
+});*/
+
+use AdvancedELOQUENT\User;
+
+Route::get('/', function () {
+
+	$user=User::find(1);
+
+	echo $user->name;
+	foreach ($user->exams as $exam) {
+		
+		echo 
+			'<li>'
+			. $exam->title
+			. 'Nota ' . $exam->pivot->score
+			. ' Fecha ' . $exam->pivot->created_at
+			. '</li>';
+	}
+	//return $user->name;
 });
 
 /*
