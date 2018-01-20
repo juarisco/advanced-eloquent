@@ -45,12 +45,29 @@ Route::delete('destroy', function(Illuminate\Http\Request $request) {
     
 });*/
 
-Route::get('/', function () {
+/*Route::get('/', function () {
 
 	$users=AdvancedELOQUENT\User::all();
 
 	return view('manytomany', compact('users'));
+});*/
+
+Route::get('/', function () {
+
+	$users=AdvancedELOQUENT\User::all();
+
+	return view('manytomany.index', compact('users'));
 });
+
+Route::get('edit-manytomany/{user_id}', [
+	'as' => 'getEdit',
+	'uses' => 'UserController@getEditManyToMany'
+]);
+
+Route::put('put-manytomany/{user_id}', [
+	'as' => 'putEdit',
+	'uses' => 'UserController@putEditManyToMany'
+]);
 
 /*
 |--------------------------------------------------------------------------
