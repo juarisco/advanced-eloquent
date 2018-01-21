@@ -82,7 +82,7 @@ Route::put('put-manytomany/{user_id}', [
 	return view('querybuilder.index', compact('books'));
 });*/
 
-use AdvancedELOQUENT\User;
+/*use AdvancedELOQUENT\User;
 
 Route::get('/', function () {
 
@@ -99,6 +99,18 @@ Route::get('/', function () {
 			. '</li>';
 	}
 	//return $user->name;
+});*/
+
+use AdvancedELOQUENT\Book;
+
+Route::get('/', function () {
+
+	$books=Book::with('category', 'user')->get();
+
+	//dd($books);
+
+	return view('home', compact('books'));
+
 });
 
 /*
