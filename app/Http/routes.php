@@ -101,7 +101,7 @@ Route::get('/', function () {
 	//return $user->name;
 });*/
 
-use AdvancedELOQUENT\Book;
+/*use AdvancedELOQUENT\Book;
 
 Route::get('/', function () {
 
@@ -111,6 +111,19 @@ Route::get('/', function () {
 
 	return view('home', compact('books'));
 
+});*/
+
+use AdvancedELOQUENT\User;
+use AdvancedELOQUENT\Page;
+
+Route::get('/', function() {
+
+	$page=Page::find(7);
+
+	echo $page->name;
+	foreach ($page->comments as $comment) {
+		echo '<li>' . $comment->body . '</li>';
+	}
 });
 
 /*
