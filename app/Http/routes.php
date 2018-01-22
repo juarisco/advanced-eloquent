@@ -126,7 +126,7 @@ Route::get('/', function() {
 	}
 });*/
 
-use AdvancedELOQUENT\Post;
+/*use AdvancedELOQUENT\Post;
 use AdvancedELOQUENT\Video;
 use AdvancedELOQUENT\Tag;
 
@@ -142,13 +142,23 @@ Route::get('/', function () {
 
 	$video=Video::first();
 
-	echo 'video: ' . $video->title;
+	echo 'VIDEO: ' . $video->title;
 
 	foreach ($video->tags as $tag) {
 		echo '<li>' . $tag->title . '</li>';
 	}
 	//return 'Done';
+});*/
+
+Route::get('/', function () {
+
+	return 'Done';
 });
+
+Route::get('user/{id}', [
+	'as' => 'user',
+	'uses' => 'UserController@getUser'
+]);
 
 /*
 |--------------------------------------------------------------------------

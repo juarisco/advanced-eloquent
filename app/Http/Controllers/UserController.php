@@ -27,4 +27,12 @@ class UserController extends Controller
     	return redirect('/');
     	
     }
+
+    public function getUser($id) {
+
+        $user=User::find($id);
+
+        return view('user', compact('user'));
+
+    }
 }
